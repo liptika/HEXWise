@@ -74,6 +74,8 @@ class ChatReadRetrieveReadVisionApproach(ChatApproach):
         Always include the source name from the image or text for each fact you use in the response in the format: [filename]
         Answer the following question using only the data provided in the sources below.
         Find the learning objective from asked question, and shape your answer w.r.t learning objectives. Try to mention learning objective explicitly in your answer.
+        If you are asked for generating multiple choice quiz questions or reflective text based questions, generate questions based on the sources.
+        You must mention the correct answer in the below and explain properly why it's correct.
         If asking a clarifying question to the user would help, ask the question.
         Be brief in your answers.
         For tabular information return it as an html table. Do not return markdown format.

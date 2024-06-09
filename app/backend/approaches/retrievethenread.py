@@ -22,6 +22,8 @@ class RetrieveThenReadApproach(Approach):
         + "Use 'you' to refer to the individual asking the questions even if they ask with 'I'. "
         + "Answer the following question using only the data provided in the sources below. "
         + "Find the learning objective from asked question, and shape your answer w.r.t learning objectives. Try to mention learning objective explicitly in your answer."
+        + "If you are asked for generating multiple choice quiz questions or reflective text based questions, generate questions based on the sources."
+        + "You must mention the correct answer in the below and explain properly why it's correct."
         + "For tabular information return it as an html table. Do not return markdown format. "
         + "Each source has a name followed by colon and the actual information, always include the source name for each fact you use in the response. "
         + "If you cannot answer using the sources below, say you don't know. Use below example to answer"

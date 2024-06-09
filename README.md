@@ -1,4 +1,6 @@
-# ChatGPT + Enterprise data with Azure OpenAI and AI Search
+# HEXWise - The AI Tutor with Azure OpenAI and AI Search 
+
+This project is based on [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo). It extends the original functionality by adding personalized Exam Guide and interactive content creation features, leveraging AI to enhance the educational experience.
 
 > [!IMPORTANT]
 > As of November 15, 2023, Azure Cognitive Search has been renamed to Azure AI Search.
@@ -46,6 +48,20 @@ The repo includes sample data so it's ready to try end to end. In this sample ap
 - Optional addition of [speech input/output](/docs/deploy_features.md#enabling-speech-inputoutput) for accessibility
 - Optional automation of [user login and data access](/docs/login_and_acl.md) via Microsoft Entra
 - Performance tracing and monitoring with Application Insights
+
+### New Features
+- **Personalized Exam Guide**: 
+  - **Description**: AI uses student data to recommend tailored quizzes, suggesting personalized learning materials and activities that cater to individual strengths and weaknesses.
+  - **Benefits**: Provides a customized learning experience that can adapt to the unique needs of each student.
+
+- **Interactive Content Creation**:
+  - **Description**: AI generates personalized quizzes with detailed explanations, keeping students actively involved with the course material.
+  - **Benefits**: Enhances engagement and interaction with the content, ensuring that students remain motivated.
+
+- **Learning Objective Based Solution**:
+  - **Description**: AI assists in setting specific learning objectives for each student and tracks their progress towards achieving these objectives. Based on performance data, it adjusts the learning materials and activities to help students meet their goals efficiently.
+  - **Benefits**: Ensures that learning is goal-oriented, providing a clear path for students to follow and making adjustments as needed to optimize their learning journey.
+
 
 ![Chat screen](docs/images/chatscreen.png)
 
@@ -198,6 +214,22 @@ Once in the web app:
 * Try different topics in chat or Q&A context. For chat, try follow up questions, clarifications, ask to simplify or elaborate on answer, etc.
 * Explore citations and sources
 * Click on "settings" to try different options, tweak prompts, etc.
+
+### New Usage
+#### Interactive Content Creation
+
+1. **Generate Quizzes**:
+    - Go to the 'Exam Prep' section.
+    - Click on 'Submit Question' button and follow the prompts.
+
+2. **Receive Feedback**:
+    - Engage with the course material and 'Coffee with Tutor.
+    - Ask for any feedback if you think it is necessary.
+    - If you have a particular  question, navigate to 'Ask Your Doubt'. 
+
+3. **Use this prrompt**:
+    - Type this prompt in 'Exam Prep' section. 
+    "Generate 1 multiple quiz question each 'to unfold self purpose', 'to differentiate between drivers and drainers', 'to find meaning and fulfillment' , 'to overcome confusion in life path', 'to understand micro you'."
 
 ## Monitoring with Application Insights
 

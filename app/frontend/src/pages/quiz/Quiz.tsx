@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { Checkbox, Panel, DefaultButton, Spinner, TextField, ICheckboxProps, ITextFieldProps } from "@fluentui/react";
 import { useId } from "@fluentui/react-hooks";
 
-import styles from "./Ask.module.css";
+import styles from "./Quiz.module.css";
 
 import { askApi, configApi, getSpeechApi, ChatAppResponse, ChatAppRequest, RetrievalMode, VectorFieldOptions, GPT4VInput } from "../../api";
 import { Answer, AnswerError } from "../../components/Answer";
 import { QuestionInput } from "../../components/QuestionInput";
-import { ExampleList } from "../../components/Example";
+// import { ExampleList } from "../../components/Example";
 import { AnalysisPanel, AnalysisPanelTabs } from "../../components/AnalysisPanel";
 import { HelpCallout } from "../../components/HelpCallout";
 import { SettingsButton } from "../../components/SettingsButton/SettingsButton";
@@ -35,7 +35,9 @@ export function Component(): JSX.Element {
     const [useGPT4V, setUseGPT4V] = useState<boolean>(false);
     const [gpt4vInput, setGPT4VInput] = useState<GPT4VInput>(GPT4VInput.TextAndImages);
     const [excludeCategory, setExcludeCategory] = useState<string>("");
-    const [question, setQuestion] = useState<string>("");
+    const [question, setQuestion] = useState<string>(
+        "Generate 1 multiple quiz question each 'to unfold self purpose', 'to differentiate between drivers and drainers' and 'to find meaning and fulfillment.'"
+    );
     const [vectorFieldList, setVectorFieldList] = useState<VectorFieldOptions[]>([VectorFieldOptions.Embedding, VectorFieldOptions.ImageEmbedding]);
     const [useOidSecurityFilter, setUseOidSecurityFilter] = useState<boolean>(false);
     const [useGroupsSecurityFilter, setUseGroupsSecurityFilter] = useState<boolean>(false);
@@ -226,9 +228,13 @@ export function Component(): JSX.Element {
             <div className={styles.askTopSection}>
                 <div className={styles.commandsContainer}>
                     {showUserUpload && <UploadFile className={styles.commandButton} disabled={!isLoggedIn(client)} />}
-                    {/* <SettingsButton className={styles.commandButton} onClick={() => setIsConfigPanelOpen(!isConfigPanelOpen)} /> */}
+                    <SettingsButton className={styles.commandButton} onClick={() => setIsConfigPanelOpen(!isConfigPanelOpen)} />
                 </div>
-                <h1 className={styles.askTitle}>Your AI Tutor</h1>
+                <h2 className={styles.askTitle}>
+                    Hi Sophie!{"\n"}We are meticulously crafting questions tailored to your performance, strengths, interests, and skills.
+                    {"\n"}By solving these questions, you will gain deeper knowledge and enhance your abilities.
+                    {"\n"}Embrace this opportunity to grow and empower your skills further.
+                </h2>
                 <div className={styles.askQuestionInput}>
                     <QuestionInput
                         placeholder="Example: How can I figure out what my purpose is if I don't know what I'm passionate about yet?"
@@ -241,7 +247,7 @@ export function Component(): JSX.Element {
             </div>
             <div className={styles.askBottomSection}>
                 {isLoading && <Spinner label="Generating answer" />}
-                {!lastQuestionRef.current && <ExampleList onExampleClicked={onExampleClicked} useGPT4V={useGPT4V} />}
+                {!lastQuestionRef.current}
                 {!isLoading && answer && !error && (
                     <div className={styles.askAnswerContainer}>
                         <Answer
@@ -474,4 +480,4 @@ export function Component(): JSX.Element {
     );
 }
 
-Component.displayName = "Ask";
+Component.displayName = "Quiz";
